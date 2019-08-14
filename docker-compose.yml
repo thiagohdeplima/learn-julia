@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  julia:
+    volumes:
+    - .:/srv/app
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    ports:
+    - "9001:8080"
+    command: jupyter lab --port=8080 --ip=0.0.0.0 --notebook-dir=/srv/app
